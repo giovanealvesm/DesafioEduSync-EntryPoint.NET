@@ -1,0 +1,16 @@
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\bin\Debug\net5.0\DiagnosticoPrevio.exe
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\bin\Debug\net5.0\DiagnosticoPrevio.deps.json
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\bin\Debug\net5.0\DiagnosticoPrevio.runtimeconfig.json
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\bin\Debug\net5.0\DiagnosticoPrevio.runtimeconfig.dev.json
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\bin\Debug\net5.0\DiagnosticoPrevio.dll
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\bin\Debug\net5.0\DiagnosticoPrevio.pdb
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.csproj.AssemblyReference.cache
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.AssemblyInfoInputs.cache
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.AssemblyInfo.cs
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.csproj.CoreCompileInputs.cache
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.dll
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\refint\DiagnosticoPrevio.dll
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.pdb
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\DiagnosticoPrevio.genruntimeconfig.cache
+D:\Projetos\BRQ_EduSync\DesafioEduSync-EntryPoint.NET\DiagnosticoPrevio\DiagnosticoPrevio\obj\Debug\net5.0\ref\DiagnosticoPrevio.dll

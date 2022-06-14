@@ -6,7 +6,18 @@ namespace DiagnosticoPrevio
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Decora("=");
+            Console.Write(" Diagnóstico Prévio ");
+            Decora("=");
+        }
+        public static void Decora(string sinal)
+        {
+            Console.Write("\t");
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write("=");
+            }
+            Console.Write("\t");
         }
     }
 }
