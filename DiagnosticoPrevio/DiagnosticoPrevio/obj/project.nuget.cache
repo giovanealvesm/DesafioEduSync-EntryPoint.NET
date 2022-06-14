@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/APY4f0/EE/lkjQT1crejI3z15ooPCWX+PxptyoxfwKic4nlLxTF24JC0ZDrOH2uj1LHivAxcRwO8nNYfmLPXg==",
+  "success": true,
+  "projectFilePath": "D:\\Projetos\\BRQ_EduSync\\DesafioEduSync-EntryPoint.NET\\DiagnosticoPrevio\\DiagnosticoPrevio\\DiagnosticoPrevio.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\giova\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}
