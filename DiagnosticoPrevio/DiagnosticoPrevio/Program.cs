@@ -61,6 +61,20 @@ namespace DiagnosticoPrevio
             } while (validaIdade == false || idade <= 0);
             Console.WriteLine();
 
+            // Solicita a altura do usuario 
+            do
+            {
+                Console.Write("Entre com sua altura(Em METROS): ");
+                validaAltura = double.TryParse(Console.ReadLine()
+                                                      .Replace(".", ",") // Metodo para trocar a virgula(,) pelo ponto final(.).
+                                                      .ToString(CultureInfo.GetCultureInfo("pt-br")), out altura); // Força o idioma do programa para pt-br.
+                if (altura <= 0)
+                {
+                    Console.WriteLine("Altura incorreta");
+                }
+            } while (altura <= 0);
+            Console.WriteLine();
+
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
