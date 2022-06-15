@@ -137,6 +137,8 @@ namespace DiagnosticoPrevio
                 }
                 Console.Clear();
             } while (entradas == "n");
+
+            imc = Imc(altura, peso); // Guardando o resultado da função Imc() na variavel imc
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
@@ -187,6 +189,14 @@ namespace DiagnosticoPrevio
             }
 
             return categoria;
+        }
+        public static double Imc(double altura, double peso) // Calcula o IMC
+        {
+            double imc = 0;
+
+            imc = peso / (Math.Pow(altura, 2));
+
+            return imc;
         }
     }
 }
