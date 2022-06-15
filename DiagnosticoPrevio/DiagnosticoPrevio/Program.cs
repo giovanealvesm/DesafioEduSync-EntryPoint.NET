@@ -89,6 +89,28 @@ namespace DiagnosticoPrevio
             } while (peso <= 0);
             Console.WriteLine();
 
+            // Verifia o sexo do usuario
+            do
+            {
+                Console.Write("Digite [F] para Feminio e [M] para Masculino: ");
+                sexo = Console.ReadLine().ToLower();
+
+                if (sexo != "f" && sexo != "m")
+                {
+                    Console.WriteLine("Sexo não definido!");
+                }
+            } while (sexo is not "f" and not "m");
+
+            if (sexo == "m")
+            {
+                sexo = "Masculino";
+            }
+            else if (sexo == "f")
+            {
+                sexo = "Feminino";
+            }
+            Console.WriteLine();
+
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
