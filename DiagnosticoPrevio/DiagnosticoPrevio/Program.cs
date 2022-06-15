@@ -1,23 +1,39 @@
 ﻿using System;
+using System.Globalization;
+using System.Runtime.ConstrainedExecution;
+
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DiagnosticoPrevio
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Decora("=");
-            Console.Write(" Diagnóstico Prévio ");
-            Decora("=");
-        }
-        public static void Decora(string sinal)
-        {
-            Console.Write("\t");
-            for (int i = 0; i < 20; i++)
+            // Variaveis
+            string nome, sexo;
+            int idade = 0;
+            bool validaIdade = false, validaAltura = false, validaPeso = false;
+            double altura = 0, peso = 0, imc = 0;
+            //Vetores
+            string[] risco =
             {
-                Console.Write("=");
-            }
-            Console.Write("\t");
+                "Muitas complicações de saúde como doenças pulmonares e cardiovasculares podem estar associadas ao baixo peso.",
+                "Seu peso está ideal para suas referências. ",
+                "Aumento de peso apresenta risco moderado para outras doenças crônicas e cardiovasculares.",
+                "Quem tem obesidade vai estar mais exposto a doenças graves e ao risco de mortalidade.",
+                "O obeso mórbido vive menos, tem alto risco de mortalidade geral por diversas causas."
+            };
+            string[] recomendacoes =
+            {
+                "Inclua carboidratos simples em sua dieta, além de proteínas - indispensáveis para ganho de massa magra. Procure um profissional .",
+                "Mantenha uma dieta saudável e faça seus exames periódicos.",
+                "Adote um tratamento baseado em dieta balanceada, exercício físico e medicação. A ajuda de um profissional pode ser interessante.",
+                "Adote uma dieta alimentar rigorosa, com o acompanhamento de um nutricionista e um médico especialista (endócrino).",
+                "Procure com urgência o acompanhamento de um nutricionista para realizar reeducação alimentar, um psicólogo e um médicoespecialista (endócrino)."
+            };
+
+
         }
     }
 }
