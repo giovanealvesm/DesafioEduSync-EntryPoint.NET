@@ -13,7 +13,7 @@ namespace DiagnosticoPrevio
             // Variaveis
             string nome, sexo, entradas;
             int idade = 0;
-            bool validaIdade = false, validaAltura = false, validaPeso = false, validaDados = false;
+            bool validaIdade = false, validaAltura = false, validaPeso = false, validaSexo = false, validaNome = false, validaDados = false;
             double altura = 0, peso = 0, imc = 0;
             //Vetores
             string[] risco =
@@ -26,11 +26,11 @@ namespace DiagnosticoPrevio
             };
             string[] recomendacoes =
             {
-                "Inclua carboidratos simples em sua dieta, além de proteínas - indispensáveis para ganho de massa magra. Procure um profissional .",
+                "Inclua carboidratos simples em sua dieta, além de proteínas - indispensáveis para ganho de massa magra.\n\tProcure um profissional .",
                 "Mantenha uma dieta saudável e faça seus exames periódicos.",
-                "Adote um tratamento baseado em dieta balanceada, exercício físico e medicação. A ajuda de um profissional pode ser interessante.",
+                "Adote um tratamento baseado em dieta balanceada, exercício físico e medicação.\n\tA ajuda de um profissional pode ser interessante.",
                 "Adote uma dieta alimentar rigorosa, com o acompanhamento de um nutricionista e um médico especialista (endócrino).",
-                "Procure com urgência o acompanhamento de um nutricionista para realizar reeducação alimentar, um psicólogo e um médicoespecialista (endócrino)."
+                "Procure com urgência o acompanhamento de um nutricionista para realizar reeducação alimentar,\n\tum psicólogo e um médicoespecialista (endócrino)."
             };
             do
             {
@@ -41,12 +41,17 @@ namespace DiagnosticoPrevio
                 do
                 {
                     Console.Write("Entre com seu nome: ");
-                    nome = Console.ReadLine();
-                    if (nome == "")
+                    nome = Console.ReadLine().Trim();
+
+                    validaNome = string.IsNullOrWhiteSpace(nome); // Verifica se o usuario não digitou nada ou apenas espaços
+                    if (validaNome == true)
                     {
                         Console.WriteLine("Nada digitado!");
+                        Console.Clear();
+                        Cabeçalho();
+
                     }
-                } while (nome == "");
+                } while (validaNome == true);
                 Console.WriteLine();
 
                 // Solicita a idade para o usuario - E verifica se a idade e maior que 0 e se é um inteiro
@@ -54,9 +59,13 @@ namespace DiagnosticoPrevio
                 {
                     Console.Write("Entre com sua idade: ");
                     validaIdade = int.TryParse(Console.ReadLine(), out idade);
+
                     if (validaIdade == false || idade <= 0)
                     {
                         Console.WriteLine("Idade invalida");
+                        Console.Clear();
+                        Cabeçalho();
+
                     }
 
                 } while (validaIdade == false || idade <= 0);
@@ -67,11 +76,16 @@ namespace DiagnosticoPrevio
                 {
                     Console.Write("Entre com sua altura(Em METROS): ");
                     validaAltura = double.TryParse(Console.ReadLine()
-                                                          .Replace(".", ",") // Metodo para trocar a virgula(,) pelo ponto final(.).
-                                                          .ToString(CultureInfo.GetCultureInfo("pt-br")), out altura); // Força o idioma do programa para pt-br.
+                                                            .Replace(",", "."), // Metodo para trocar a virgula(,) pelo ponto final(.).
+                                                            NumberStyles.Number,
+                                                            CultureInfo.InvariantCulture, out altura);
                     if (altura <= 0)
                     {
+
                         Console.WriteLine("Altura incorreta");
+                        Console.Clear();
+                        Cabeçalho();
+
                     }
                 } while (altura <= 0);
                 Console.WriteLine();
@@ -81,11 +95,14 @@ namespace DiagnosticoPrevio
                 {
                     Console.Write("Entre com seu peso(Em Kg): ");
                     validaPeso = double.TryParse(Console.ReadLine()
-                                                        .Replace(".", ",")
-                                                        .ToString(CultureInfo.GetCultureInfo("pt-br")), out peso);
+                                                        .Replace(",", "."),
+                                                        NumberStyles.Number,
+                                                        CultureInfo.InvariantCulture, out peso);
                     if (peso <= 0)
                     {
                         Console.WriteLine("Peso incorreto");
+                        Console.Clear();
+                        Cabeçalho();
                     }
                 } while (peso <= 0);
                 Console.WriteLine();
@@ -95,10 +112,17 @@ namespace DiagnosticoPrevio
                 {
                     Console.Write("Digite [F] para Feminio e [M] para Masculino: ");
                     sexo = Console.ReadLine().ToLower();
+                    validaSexo = string.IsNullOrWhiteSpace(sexo);
 
-                    if (sexo != "f" && sexo != "m")
+                    if (sexo == "f" || sexo == "m")
                     {
-                        Console.WriteLine("Sexo não definido!");
+                        sexo = sexo;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sexo não defino!");
+                        Console.Clear();
+                        Cabeçalho();
                     }
                 } while (sexo is not "f" and not "m");
 
@@ -112,28 +136,37 @@ namespace DiagnosticoPrevio
                 }
                 Console.Clear();
                 Cabeçalho();
-                Console.WriteLine($"Nome: {nome}");
-                Console.WriteLine($"Idade: {idade}");
-                Console.WriteLine($"Altura: {altura}");
-                Console.WriteLine($"Peso: {peso}");
-                Console.WriteLine($"Sexo: {sexo}");
+                Console.WriteLine($"Nome:   {nome}.");
+                Console.WriteLine($"Idade:  {idade} anos.");
+                Console.WriteLine($"Altura: {altura} m.");
+                Console.WriteLine($"Peso:   {peso}Kg.");
+                Console.WriteLine($"Sexo:   {sexo}.");
                 Console.WriteLine();
-                Console.WriteLine("O dados digitados estão certos?");
-                Console.Write("[S] Sim [N] Não: ");
-                entradas = Console.ReadLine();
-                if (entradas == "s")
+                do
                 {
-                    validaDados = true;
-                }
-                else if (entradas == "n")
+                    Console.WriteLine("O dados digitados estão certos?");
+                    Console.Write("[S] Sim [N] Não: ");
+                    entradas = Console.ReadLine();
+                    validaDados = string.IsNullOrWhiteSpace(entradas);
+                    if (validaDados == true)
+                    {
+                        Console.WriteLine("Nada digitado!");
+                    }
+                } while (entradas is not "s" and not "n");
                 {
-                    validaDados = false;
+                    if (entradas == "s")
+                    {
+                        validaDados = true;
+                    }
+                    else if (entradas == "n")
+                    {
+                        validaDados = false;
 
-                }
-                else
-                {
-                    Console.WriteLine("Entrada invalida");
-                    return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Entrada invalida");
+                    }
                 }
                 Console.Clear();
             } while (entradas == "n");
@@ -145,19 +178,18 @@ namespace DiagnosticoPrevio
             Console.Clear(); // Limpa o console
 
             Cabeçalho();
-            Console.WriteLine($"Nome: {NoUpper(nome)}");
-            Console.WriteLine($"Sexo: {sexo}");
-            Console.WriteLine($"Idade: {idade}");
-            Console.WriteLine($"Altura: {altura}");
-            Console.WriteLine($"Peso: {peso}");
-            Console.WriteLine($"Categoria: {Categoria(idade)}");
+            Console.WriteLine($"\tNome:      {NoUpper(nome)}.");
+            Console.WriteLine($"\tSexo:      {sexo}.");
+            Console.WriteLine($"\tIdade:     {idade} anos");
+            Console.WriteLine($"\tAltura:    {altura} m.");
+            Console.WriteLine($"\tPeso:      {peso} Kg.");
+            Console.WriteLine($"\tCategoria: {Categoria(idade)}.");
             Console.WriteLine();
             Console.WriteLine();
 
-            Console.WriteLine("IMC desejável: entre 20 e 24.");
+            Console.WriteLine("\tIMC desejável: entre 20 e 24.");
             Console.WriteLine();
 
-            Decora("=");
             Decora("=");
             Decora("=");
             Decora("=");
@@ -165,73 +197,55 @@ namespace DiagnosticoPrevio
             Console.WriteLine();
             if (imc < 20)
             {
-                Console.WriteLine($"Sua classificação IMC: Abaixo do peso ideal IMC inferior a 20.");
-                Console.WriteLine();
-                Console.WriteLine($"Resultado IMC: {imc:n2}");
-                Console.WriteLine();
-                Console.WriteLine($"Riscos: {risco[0]}");
-                Console.WriteLine();
-                Console.WriteLine($"Recomendação inicial: {recomendacoes[0]} ");
+                Console.WriteLine($"\tSua classificação IMC: Abaixo do peso ideal IMC inferior a 20.\n");
+                Console.WriteLine($"\tResultado IMC: {imc:n2}\n");
+                Console.WriteLine($"\tRiscos: {risco[0]}\n");
+                Console.WriteLine($"\tRecomendação inicial: {recomendacoes[0]}\n");
             }
             else if (imc >= 20 && imc <= 24)
             {
-                Console.WriteLine($"Sua classificação IMC: Peso Normal IMC entre 20 e 24.");
-                Console.WriteLine();
-                Console.WriteLine($"Resultado IMC: {imc:n2}");
-                Console.WriteLine();
-                Console.WriteLine($"Riscos: {risco[1]}");
-                Console.WriteLine();
-                Console.WriteLine($"Recomendação inicial: {recomendacoes[1]} ");
+                Console.WriteLine($"\tSua classificação IMC: Peso Normal IMC entre 20 e 24.\n");
+                Console.WriteLine($"\tResultado IMC: {imc:n2}\n");
+                Console.WriteLine($"\tRiscos: {risco[1]}\n");
+                Console.WriteLine($"\tRecomendação inicial: {recomendacoes[1]}\n");
             }
             else if (imc >= 25 && imc <= 29)
             {
-                Console.WriteLine("Sua classificação IMC: Execesso de peso IMC entre 25 e 29.");
-                Console.WriteLine();
-                Console.WriteLine($"Resultado IMC: {imc:n2}");
-                Console.WriteLine();
-                Console.WriteLine($"Riscos: {risco[2]}");
-                Console.WriteLine();
-                Console.WriteLine($"Recomendação inicial: {recomendacoes[2]} ");
+                Console.WriteLine("\tSua classificação IMC: Execesso de peso IMC entre 25 e 29.\n");
+                Console.WriteLine($"\tResultado IMC: {imc:n2}\n");
+                Console.WriteLine($"\tRiscos: {risco[2]}\n");
+                Console.WriteLine($"\tRecomendação inicial: {recomendacoes[2]}\n");
             }
             else if (imc >= 30 && imc <= 35)
             {
-                Console.WriteLine($"Sua classificação IMC: Obesidade IMC entre 30 e 35");
-                Console.WriteLine();
-                Console.WriteLine($"Resultado IMC: {imc:n2}");
-                Console.WriteLine();
-                Console.WriteLine($"Riscos: {risco[3]}");
-                Console.WriteLine();
-                Console.WriteLine($"Recomendação inicial: {recomendacoes[3]} ");
+                Console.WriteLine($"\tSua classificação IMC: Obesidade IMC entre 30 e 35");
+                Console.WriteLine($"\tResultado IMC: {imc:n2}");
+                Console.WriteLine($"\tRiscos: {risco[3]}");
+                Console.WriteLine($"\tRecomendação inicial: {recomendacoes[3]} ");
             }
             else if (imc > 35)
             {
-                Console.WriteLine($"Sua classificação IMC: Super obesidade IMC superior a 35");
-                Console.WriteLine();
-                Console.WriteLine($"Resultado IMC: {imc:n2}");
-                Console.WriteLine();
-                Console.WriteLine($"Riscos: {risco[4]}");
-                Console.WriteLine();
-                Console.WriteLine($"Recomendação inicial: {recomendacoes[4]} ");
+                Console.WriteLine($"\tSua classificação IMC: Super obesidade IMC superior a 35\n");
+                Console.WriteLine($"\tResultado IMC: {imc:n2}\n");
+                Console.WriteLine($"\tRiscos: {risco[4]}\n");
+                Console.WriteLine($"\tRecomendação inicial: {recomendacoes[4]}\n");
             }
             Console.WriteLine();
             Decora("=");
             Decora("=");
             Decora("=");
-            Decora("=");
-            
-
         }
         // FUNÇÕES
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 40; i++)
             {
                 Console.Write("=");
             }
         }
         public static void Cabeçalho() // titulo do programa
         {
-            Console.Write("\t");
+            //Console.Write("\t");
             Decora("=");
             Console.Write("\t Diagnóstico Prévio \t");
             Decora("=");
