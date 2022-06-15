@@ -75,6 +75,20 @@ namespace DiagnosticoPrevio
             } while (altura <= 0);
             Console.WriteLine();
 
+            // Solicita o peso para do usuario
+            do
+            {
+                Console.Write("Entre com seu peso(Em Kg): ");
+                validaPeso = double.TryParse(Console.ReadLine()
+                                                    .Replace(".", ",")
+                                                    .ToString(CultureInfo.GetCultureInfo("pt-br")), out peso);
+                if (peso <= 0)
+                {
+                    Console.WriteLine("Peso incorreto");
+                }
+            } while (peso <= 0);
+            Console.WriteLine();
+
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
