@@ -33,7 +33,36 @@ namespace DiagnosticoPrevio
                 "Procure com urgência o acompanhamento de um nutricionista para realizar reeducação alimentar, um psicólogo e um médicoespecialista (endócrino)."
             };
 
+            //Função que mostra o titulo do programa
+            Cabeçalho();
 
+            // Solicita o nome para o usuario - E verifica se ele escreveu algo
+            do
+            {
+                Console.Write("Entre com seu nome: ");
+                nome = Console.ReadLine();
+                if (nome == "")
+                {
+                    Console.WriteLine("Nada digitado!");
+                }
+            } while (nome == "");
+            Console.WriteLine();
+        }
+        public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write("=");
+            }
+        }
+        public static void Cabeçalho() // titulo do programa
+        {
+            Console.Write("\t");
+            Decora("=");
+            Console.Write("\t Diagnóstico Prévio \t");
+            Decora("=");
+            Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }
