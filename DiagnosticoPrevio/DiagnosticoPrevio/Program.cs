@@ -11,9 +11,9 @@ namespace DiagnosticoPrevio
         public static void Main(string[] args)
         {
             // Variaveis
-            string nome, sexo;
+            string nome, sexo, entradas;
             int idade = 0;
-            bool validaIdade = false, validaAltura = false, validaPeso = false;
+            bool validaIdade = false, validaAltura = false, validaPeso = false, validaDados = false;
             double altura = 0, peso = 0, imc = 0;
             //Vetores
             string[] risco =
@@ -32,85 +32,110 @@ namespace DiagnosticoPrevio
                 "Adote uma dieta alimentar rigorosa, com o acompanhamento de um nutricionista e um médico especialista (endócrino).",
                 "Procure com urgência o acompanhamento de um nutricionista para realizar reeducação alimentar, um psicólogo e um médicoespecialista (endócrino)."
             };
-
-            //Função que mostra o titulo do programa
-            Cabeçalho();
-
-            // Solicita o nome para o usuario - E verifica se ele escreveu algo
             do
             {
-                Console.Write("Entre com seu nome: ");
-                nome = Console.ReadLine();
-                if (nome == "")
+                //Função que mostra o titulo do programa
+                Cabeçalho();
+
+                // Solicita o nome para o usuario - E verifica se ele escreveu algo
+                do
                 {
-                    Console.WriteLine("Nada digitado!");
-                }
-            } while (nome == "");
-            Console.WriteLine();
+                    Console.Write("Entre com seu nome: ");
+                    nome = Console.ReadLine();
+                    if (nome == "")
+                    {
+                        Console.WriteLine("Nada digitado!");
+                    }
+                } while (nome == "");
+                Console.WriteLine();
 
-            // Solicita a idade para o usuario - E verifica se a idade e maior que 0 e se é um inteiro
-            do
-            {
-                Console.Write("Entre com sua idade: ");
-                validaIdade = int.TryParse(Console.ReadLine(), out idade);
-                if (validaIdade == false || idade <= 0)
+                // Solicita a idade para o usuario - E verifica se a idade e maior que 0 e se é um inteiro
+                do
                 {
-                    Console.WriteLine("Idade invalida");
-                }
+                    Console.Write("Entre com sua idade: ");
+                    validaIdade = int.TryParse(Console.ReadLine(), out idade);
+                    if (validaIdade == false || idade <= 0)
+                    {
+                        Console.WriteLine("Idade invalida");
+                    }
 
-            } while (validaIdade == false || idade <= 0);
-            Console.WriteLine();
+                } while (validaIdade == false || idade <= 0);
+                Console.WriteLine();
 
-            // Solicita a altura do usuario 
-            do
-            {
-                Console.Write("Entre com sua altura(Em METROS): ");
-                validaAltura = double.TryParse(Console.ReadLine()
-                                                      .Replace(".", ",") // Metodo para trocar a virgula(,) pelo ponto final(.).
-                                                      .ToString(CultureInfo.GetCultureInfo("pt-br")), out altura); // Força o idioma do programa para pt-br.
-                if (altura <= 0)
+                // Solicita a altura do usuario 
+                do
                 {
-                    Console.WriteLine("Altura incorreta");
-                }
-            } while (altura <= 0);
-            Console.WriteLine();
+                    Console.Write("Entre com sua altura(Em METROS): ");
+                    validaAltura = double.TryParse(Console.ReadLine()
+                                                          .Replace(".", ",") // Metodo para trocar a virgula(,) pelo ponto final(.).
+                                                          .ToString(CultureInfo.GetCultureInfo("pt-br")), out altura); // Força o idioma do programa para pt-br.
+                    if (altura <= 0)
+                    {
+                        Console.WriteLine("Altura incorreta");
+                    }
+                } while (altura <= 0);
+                Console.WriteLine();
 
-            // Solicita o peso para do usuario
-            do
-            {
-                Console.Write("Entre com seu peso(Em Kg): ");
-                validaPeso = double.TryParse(Console.ReadLine()
-                                                    .Replace(".", ",")
-                                                    .ToString(CultureInfo.GetCultureInfo("pt-br")), out peso);
-                if (peso <= 0)
+                // Solicita o peso para do usuario
+                do
                 {
-                    Console.WriteLine("Peso incorreto");
-                }
-            } while (peso <= 0);
-            Console.WriteLine();
+                    Console.Write("Entre com seu peso(Em Kg): ");
+                    validaPeso = double.TryParse(Console.ReadLine()
+                                                        .Replace(".", ",")
+                                                        .ToString(CultureInfo.GetCultureInfo("pt-br")), out peso);
+                    if (peso <= 0)
+                    {
+                        Console.WriteLine("Peso incorreto");
+                    }
+                } while (peso <= 0);
+                Console.WriteLine();
 
-            // Verifia o sexo do usuario
-            do
-            {
-                Console.Write("Digite [F] para Feminio e [M] para Masculino: ");
-                sexo = Console.ReadLine().ToLower();
-
-                if (sexo != "f" && sexo != "m")
+                // Verifia o sexo do usuario
+                do
                 {
-                    Console.WriteLine("Sexo não definido!");
+                    Console.Write("Digite [F] para Feminio e [M] para Masculino: ");
+                    sexo = Console.ReadLine().ToLower();
+
+                    if (sexo != "f" && sexo != "m")
+                    {
+                        Console.WriteLine("Sexo não definido!");
+                    }
+                } while (sexo is not "f" and not "m");
+
+                if (sexo == "m")
+                {
+                    sexo = "Masculino";
                 }
-            } while (sexo is not "f" and not "m");
-
-            if (sexo == "m")
-            {
-                sexo = "Masculino";
-            }
-            else if (sexo == "f")
-            {
-                sexo = "Feminino";
-            }
-            Console.WriteLine();
-
+                else if (sexo == "f")
+                {
+                    sexo = "Feminino";
+                }
+                Console.Clear();
+                Cabeçalho();
+                Console.WriteLine($"Nome: {nome}");
+                Console.WriteLine($"Idade: {idade}");
+                Console.WriteLine($"Altura: {altura}");
+                Console.WriteLine($"Peso: {peso}");
+                Console.WriteLine($"Sexo: {sexo}");
+                Console.WriteLine();
+                Console.WriteLine("O dados digitados estão certos?");
+                Console.Write("[S] Sim [N] Não: ");
+                entradas = Console.ReadLine();
+                if (entradas == "s")
+                {
+                    validaDados = true;
+                }
+                else if (entradas == "n")
+                {
+                    validaDados = false;
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Entrada invalida");
+                }
+                Console.Clear();
+            } while (validaDados == false);
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
