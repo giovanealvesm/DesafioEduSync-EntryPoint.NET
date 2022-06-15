@@ -133,9 +133,10 @@ namespace DiagnosticoPrevio
                 else
                 {
                     Console.WriteLine("Entrada invalida");
+                    return;
                 }
                 Console.Clear();
-            } while (validaDados == false);
+            } while (entradas == "n");
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
@@ -152,6 +153,10 @@ namespace DiagnosticoPrevio
             Decora("=");
             Console.WriteLine();
             Console.WriteLine();
+        }
+        public static string NoUpper(string nome) // Função para deixar maiusculo as iniciais do nome
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nome.ToLower());
         }
     }
 }
