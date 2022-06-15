@@ -139,6 +139,20 @@ namespace DiagnosticoPrevio
             } while (entradas == "n");
 
             imc = Imc(altura, peso); // Guardando o resultado da função Imc() na variavel imc
+
+            Console.Write("Precione enter para ver o resultado: ");
+            Console.ReadKey();
+            Console.Clear(); // Limpa o console
+
+            Cabeçalho();
+            Console.WriteLine($"Nome: {NoUpper(nome)}");
+            Console.WriteLine($"Sexo: {sexo}");
+            Console.WriteLine($"Idade: {idade}");
+            Console.WriteLine($"Altura: {altura}");
+            Console.WriteLine($"Peso: {peso}");
+            Console.WriteLine($"Categoria: {Categoria(idade)}");
+            Console.WriteLine();
+            Console.WriteLine();
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
