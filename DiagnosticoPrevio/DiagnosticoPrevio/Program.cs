@@ -47,6 +47,20 @@ namespace DiagnosticoPrevio
                 }
             } while (nome == "");
             Console.WriteLine();
+
+            // Solicita a idade para o usuario - E verifica se a idade e maior que 0 e se é um inteiro
+            do
+            {
+                Console.Write("Entre com sua idade: ");
+                validaIdade = int.TryParse(Console.ReadLine(), out idade);
+                if (validaIdade == false || idade <= 0)
+                {
+                    Console.WriteLine("Idade invalida");
+                }
+
+            } while (validaIdade == false || idade <= 0);
+            Console.WriteLine();
+
         }
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
