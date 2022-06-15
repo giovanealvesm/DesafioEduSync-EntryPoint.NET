@@ -128,7 +128,7 @@ namespace DiagnosticoPrevio
                 else if (entradas == "n")
                 {
                     validaDados = false;
-                    
+
                 }
                 else
                 {
@@ -153,7 +153,75 @@ namespace DiagnosticoPrevio
             Console.WriteLine($"Categoria: {Categoria(idade)}");
             Console.WriteLine();
             Console.WriteLine();
+
+            Console.WriteLine("IMC desejável: entre 20 e 24.");
+            Console.WriteLine();
+
+            Decora("=");
+            Decora("=");
+            Decora("=");
+            Decora("=");
+            Console.WriteLine();
+            Console.WriteLine();
+            if (imc < 20)
+            {
+                Console.WriteLine($"Sua classificação IMC: Abaixo do peso ideal IMC inferior a 20.");
+                Console.WriteLine();
+                Console.WriteLine($"Resultado IMC: {imc:n2}");
+                Console.WriteLine();
+                Console.WriteLine($"Riscos: {risco[0]}");
+                Console.WriteLine();
+                Console.WriteLine($"Recomendação inicial: {recomendacoes[0]} ");
+            }
+            else if (imc >= 20 && imc <= 24)
+            {
+                Console.WriteLine($"Sua classificação IMC: Peso Normal IMC entre 20 e 24.");
+                Console.WriteLine();
+                Console.WriteLine($"Resultado IMC: {imc:n2}");
+                Console.WriteLine();
+                Console.WriteLine($"Riscos: {risco[1]}");
+                Console.WriteLine();
+                Console.WriteLine($"Recomendação inicial: {recomendacoes[1]} ");
+            }
+            else if (imc >= 25 && imc <= 29)
+            {
+                Console.WriteLine("Sua classificação IMC: Execesso de peso IMC entre 25 e 29.");
+                Console.WriteLine();
+                Console.WriteLine($"Resultado IMC: {imc:n2}");
+                Console.WriteLine();
+                Console.WriteLine($"Riscos: {risco[2]}");
+                Console.WriteLine();
+                Console.WriteLine($"Recomendação inicial: {recomendacoes[2]} ");
+            }
+            else if (imc >= 30 && imc <= 35)
+            {
+                Console.WriteLine($"Sua classificação IMC: Obesidade IMC entre 30 e 35");
+                Console.WriteLine();
+                Console.WriteLine($"Resultado IMC: {imc:n2}");
+                Console.WriteLine();
+                Console.WriteLine($"Riscos: {risco[3]}");
+                Console.WriteLine();
+                Console.WriteLine($"Recomendação inicial: {recomendacoes[3]} ");
+            }
+            else if (imc > 35)
+            {
+                Console.WriteLine($"Sua classificação IMC: Super obesidade IMC superior a 35");
+                Console.WriteLine();
+                Console.WriteLine($"Resultado IMC: {imc:n2}");
+                Console.WriteLine();
+                Console.WriteLine($"Riscos: {risco[4]}");
+                Console.WriteLine();
+                Console.WriteLine($"Recomendação inicial: {recomendacoes[4]} ");
+            }
+            Console.WriteLine();
+            Decora("=");
+            Decora("=");
+            Decora("=");
+            Decora("=");
+            
+
         }
+        // FUNÇÕES
         public static void Decora(string sinal) // função com uma laço de repetição for para apresentar algum caracter para decorar
         {
             for (int i = 0; i < 20; i++)
