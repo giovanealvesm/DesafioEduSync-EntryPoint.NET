@@ -158,5 +158,35 @@ namespace DiagnosticoPrevio
         {
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nome.ToLower());
         }
+        public static string Categoria(int idade) // Função que define a categoria do usuario
+        {
+            string categoria;
+
+            string[] c =
+            {
+                "Infatil",
+                "Juvenil",
+                "Adulto",
+                "Idoso"
+            };
+            if (idade < 12)
+            {
+                categoria = c[0];
+            }
+            else if (idade >= 12 && idade <= 20)
+            {
+                categoria = c[1];
+            }
+            else if (idade >= 21 && idade <= 65)
+            {
+                categoria = c[2];
+            }
+            else
+            {
+                categoria = c[3];
+            }
+
+            return categoria;
+        }
     }
 }
