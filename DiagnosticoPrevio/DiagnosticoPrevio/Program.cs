@@ -38,7 +38,7 @@ namespace DiagnosticoPrevio
 
             do
             {
-                Cabeçalho(); //Função que mostra o titulo do programa.
+                Cabecalho(); //Função que mostra o titulo do programa.
 
                 do // Solicita o nome para o usuario - E verifica se ele escreveu algo.
                 {
@@ -48,8 +48,8 @@ namespace DiagnosticoPrevio
                     validaNome = string.IsNullOrWhiteSpace(nome); // Verifica se o usuario não digitou nada ou apenas espaços.
                     if (validaNome == true)
                     {
-                        Console.Clear();
-                        Cabeçalho();
+                        Console.Clear(); // Limpa console
+                        Cabecalho();
                         Console.WriteLine("Nada digitado!\n");
 
                     }
@@ -64,7 +64,7 @@ namespace DiagnosticoPrevio
                     if (validaIdade == false || idade <= 0)
                     {
                         Console.Clear();
-                        Cabeçalho();
+                        Cabecalho();
                         Console.WriteLine("Idade invalida\n");
                     }
 
@@ -73,38 +73,38 @@ namespace DiagnosticoPrevio
 
                 do // Solicita a altura do usuario.
                 {
-                    Console.Write("Entre com sua altura(Em METROS): ");
+                    Console.Write("Entre com sua altura em metros(EX: 1,5): ");
                     validaAltura = double.TryParse(Console.ReadLine()
                         .Replace(",", "."), // Metodo para trocar a virgula(,) pelo ponto final(.).
                         NumberStyles.Number,
                          CultureInfo.InvariantCulture, out altura);
 
-                    if (altura < 0 || altura > 2.6)
+                    if (altura <= 0 || altura > 2.6)
                     {
 
                         Console.Clear();
-                        Cabeçalho();
+                        Cabecalho();
                         Console.WriteLine("Altura incorreta\n");
 
                     }
-                } while (altura < 0 || altura > 2.6);
+                } while (altura <= 0 || altura > 2.6);
                 Console.WriteLine();
 
                 do // Solicita o peso para do usuario.
                 {
-                    Console.Write("Entre com seu peso(Em Kg): ");
+                    Console.Write("Entre com seu peso em Kg(EX: 54,6): ");
                     validaPeso = double.TryParse(Console.ReadLine()
                         .Replace(",", "."),
                         NumberStyles.Number,
                         CultureInfo.InvariantCulture, out peso);
 
-                    if (peso < 0 || peso >= 600)
+                    if (peso <= 0 || peso >= 600)
                     {
                         Console.Clear();
-                        Cabeçalho();
+                        Cabecalho();
                         Console.WriteLine("Peso incorreto\n");
                     }
-                } while (peso < 0 || peso >= 600);
+                } while (peso <= 0 || peso >= 600);
                 Console.WriteLine();
 
                 do // Verifia o sexo do usuario.
@@ -120,8 +120,8 @@ namespace DiagnosticoPrevio
                     else
                     {
                         Console.Clear();
-                        Cabeçalho();
-                        Console.WriteLine("Sexo não defino!\n");
+                        Cabecalho();
+                        Console.WriteLine("Entrada incorreta\n");
                     }
                 } while (sexo is not "f" and not "m");
 
@@ -133,12 +133,13 @@ namespace DiagnosticoPrevio
                 {
                     sexo = "Feminino";
                 }
+                // Apresentada dados para verificar se está correto
                 Console.Clear();
-                Cabeçalho();
+                Cabecalho();
                 Console.WriteLine($"Nome:   {nome}.");
                 Console.WriteLine($"Idade:  {idade} anos.");
                 Console.WriteLine($"Altura: {altura} m.");
-                Console.WriteLine($"Peso:   {peso}Kg.");
+                Console.WriteLine($"Peso:   {peso} Kg.");
                 Console.WriteLine($"Sexo:   {sexo}.");
                 Console.WriteLine();
                 do
@@ -146,7 +147,7 @@ namespace DiagnosticoPrevio
                     Console.WriteLine("O dados digitados estão certos?"); // Apresenta para o usuario os dados sem sem nenhum tratamento, e verifica se está correto.
                     Console.Write("[S] Sim [N] Não: ");
                     entradas = Console.ReadLine();
-                    validaDados = string.IsNullOrWhiteSpace(entradas); // verivica se não foi digitado nada.
+                    validaDados = string.IsNullOrWhiteSpace(entradas); // verivica se não foi digitado nada na variavel entradas.
                     if (validaDados == true)
                     {
                         Console.WriteLine("Nada digitado!");
@@ -173,14 +174,14 @@ namespace DiagnosticoPrevio
             imc = Imc(altura, peso); // Guardando o resultado da função Imc() na variavel imc.
             
             Console.Write("Precione qualquer tecla para ver o resultado: ");
-            Console.ReadKey();
+            Console.ReadKey(); // Espera click de alguma tecla
             Console.Clear(); // Limpa o console.
 
             // Apresentando os dados finais para o usuario.
-            Cabeçalho();
+            Cabecalho();
             Console.WriteLine($"\tNome:      {NoUpper(nome)}.");
             Console.WriteLine($"\tSexo:      {sexo}.");
-            Console.WriteLine($"\tIdade:     {idade} anos");
+            Console.WriteLine($"\tIdade:     {idade} anos.");
             Console.WriteLine($"\tAltura:    {altura} m.");
             Console.WriteLine($"\tPeso:      {peso} Kg.");
             Console.WriteLine($"\tCategoria: {Categoria(idade)}.\n\n");
@@ -243,7 +244,7 @@ namespace DiagnosticoPrevio
                 Console.Write("=");
             }
         }
-        public static void Cabeçalho() // titulo do programa
+        public static void Cabecalho() // titulo do programa
         {
             //Console.Write("\t");
             Decora("=");
