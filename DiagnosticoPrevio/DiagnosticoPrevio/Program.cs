@@ -79,7 +79,7 @@ namespace DiagnosticoPrevio
                         NumberStyles.Number,
                          CultureInfo.InvariantCulture, out altura);
 
-                    if (altura <= 0)
+                    if (altura < 0 || altura > 2.6)
                     {
 
                         Console.Clear();
@@ -87,7 +87,7 @@ namespace DiagnosticoPrevio
                         Console.WriteLine("Altura incorreta\n");
 
                     }
-                } while (altura <= 0);
+                } while (altura < 0 || altura > 2.6);
                 Console.WriteLine();
 
                 do // Solicita o peso para do usuario.
@@ -98,13 +98,13 @@ namespace DiagnosticoPrevio
                         NumberStyles.Number,
                         CultureInfo.InvariantCulture, out peso);
 
-                    if (peso <= 0)
+                    if (peso < 0 || peso >= 600)
                     {
                         Console.Clear();
                         Cabeçalho();
                         Console.WriteLine("Peso incorreto\n");
                     }
-                } while (peso <= 0);
+                } while (peso < 0 || peso >= 600);
                 Console.WriteLine();
 
                 do // Verifia o sexo do usuario.
