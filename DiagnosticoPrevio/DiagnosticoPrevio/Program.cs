@@ -90,11 +90,11 @@ namespace DiagnosticoPrevio
                             Cabecalho();
                             Console.WriteLine("Entrada incorreta!\n");
                         }
-                        else if (idade <= 0) // condição se a idade for menor ou igual a 0.
+                        else if (idade < 1) // condição se a idade for menor ou igual a 0.
                         {
                             Console.Clear();
                             Cabecalho();
-                            Console.WriteLine("Não existe idade negativa!\n");
+                            Console.WriteLine("Entrada somente acima 1(um) ano!\n");
                         }
                         else if (idade >= 120)// Condição se idade for maior ou igual a 120
                         {
@@ -103,7 +103,7 @@ namespace DiagnosticoPrevio
                             Console.WriteLine("Você não tem mais de 120 anos!\n");
                         }
 
-                    } while (validaIdade == false || idade <= 0 || idade >= 120);
+                    } while (validaIdade == false || idade < 1 || idade >= 120);
                     Console.WriteLine();
 
                     // Solicita a altura do usuario e limita a 2.6 metros(Baseado no livros dos recordes).
@@ -121,16 +121,16 @@ namespace DiagnosticoPrevio
                         if (altura < 1) // Condição para altura menor ou igual a 0.
                         {
                             Console.Clear();
-                            //Cabecalho();
+                            Cabecalho();
                             Console.Write("Altura não aceita valores negativos ou outro tipo de entrada.\n\nApenas ");
                         }
                         else if (altura >= 2.6) // Condição para altura maior que 2.6m.
                         {
                             Console.Clear();
-                            //Cabecalho();
+                            Cabecalho();
                             Console.WriteLine("A maior pessoa do mundo tem menos de 2.6m, tenta de novo!\n");
                         }
-                    } while (altura <= 0 || altura > 2.6);
+                    } while (altura < 1 || altura > 2.6);
                     Console.WriteLine();
 
                     // Solicita o peso para do usuario com limite de 600 Kg(Baseado no livro dos recordes).
@@ -162,7 +162,7 @@ namespace DiagnosticoPrevio
                             Cabecalho();
                             Console.WriteLine("Você digitou algo errado ou não digitou nada!");
                         }
-                    } while (peso <= 0 || peso >= 250);
+                    } while (peso < 1 || peso >= 250);
                     Console.WriteLine();
 
                     // Verifia o sexo do usuario.
@@ -194,7 +194,7 @@ namespace DiagnosticoPrevio
                             Console.Write("Entrada invalida!\n\nApenas ");
                         }
 
-                    } while (validaSexo == true && sexo != "Feminino" || sexo != "Masculino");
+                    } while (validaSexo == true || sexo != "Feminino" && sexo != "Masculino");
 
                     // Valida a entrada do usuario e atribui valor a variavel sexo.
 
@@ -267,14 +267,14 @@ namespace DiagnosticoPrevio
                     Console.WriteLine($"\tRiscos: {risco[0]}\n");
                     Console.WriteLine($"\tRecomendação inicial: {recomendacoes[0]}\n");
                 }
-                else if (imc >= 20 && imc <= 24) // Se a condição for verdadeira vai ser exibido a classificação o resultado e a posição 1 dos vetores Riscos e Recomendacoes.
+                else if (imc >= 20 && imc < 25) // Se a condição for verdadeira vai ser exibido a classificação o resultado e a posição 1 dos vetores Riscos e Recomendacoes.
                 {
                     Console.WriteLine($"\n\n\tSua classificação IMC: Peso Normal IMC entre 20 e 24.\n");
                     Console.WriteLine($"\tResultado IMC: {imc:n2}\n");
                     Console.WriteLine($"\tRiscos: {risco[1]}\n");
                     Console.WriteLine($"\tRecomendação inicial: {recomendacoes[1]}\n");
                 }
-                else if (imc >= 25 && imc <= 29)// Se a condição for verdadeira vai ser exibido a classificação o resultado e a posição 2 dos vetores Riscos e Recomendacoes.
+                else if (imc >= 25 && imc <30)// Se a condição for verdadeira vai ser exibido a classificação o resultado e a posição 2 dos vetores Riscos e Recomendacoes.
                 {
                     Console.WriteLine($"\n\n\tSua classificação IMC: Execesso de peso IMC entre 25 e 29.\n");
                     Console.WriteLine($"\tResultado IMC: {imc:n2}\n");
