@@ -198,7 +198,6 @@ namespace DiagnosticoPrevio
 
                     // Valida a entrada do usuario e atribui valor a variavel sexo.
 
-
                     // Apresentação de dados para verificar.
                     Console.Clear();
                     Cabecalho();
@@ -274,7 +273,7 @@ namespace DiagnosticoPrevio
                     Console.WriteLine($"\tRiscos: {risco[1]}\n");
                     Console.WriteLine($"\tRecomendação inicial: {recomendacoes[1]}\n");
                 }
-                else if (imc >= 25 && imc <30)// Se a condição for verdadeira vai ser exibido a classificação o resultado e a posição 2 dos vetores Riscos e Recomendacoes.
+                else if (imc >= 25 && imc < 30)// Se a condição for verdadeira vai ser exibido a classificação o resultado e a posição 2 dos vetores Riscos e Recomendacoes.
                 {
                     Console.WriteLine($"\n\n\tSua classificação IMC: Execesso de peso IMC entre 25 e 29.\n");
                     Console.WriteLine($"\tResultado IMC: {imc:n2}\n");
@@ -295,6 +294,7 @@ namespace DiagnosticoPrevio
                     Console.WriteLine($"\tRiscos: {risco[4]}\n");
                     Console.WriteLine($"\tRecomendação inicial: {recomendacoes[4]}\n");
                 }
+
                 Console.WriteLine();
                 Decora("=");
                 Decora("=");
@@ -336,7 +336,10 @@ namespace DiagnosticoPrevio
                     Decora("=");
                     Decora("=");
                 }
-
+                if (reiniciar != "n" || reiniciar != "s")
+                {
+                    Console.WriteLine("Entrada incorreta!");
+                }
             } while (reiniciar == "s");
         }
         // FUNÇÕES
