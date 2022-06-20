@@ -336,7 +336,7 @@ namespace DiagnosticoPrevio
                     Decora("=");
                     Decora("=");
                 }
-                if (reiniciar != "n" || reiniciar != "s")
+                if (reiniciar != "n" && reiniciar != "s")
                 {
                     Console.WriteLine("Entrada incorreta!");
                 }
